@@ -59,14 +59,14 @@ telescope.setup {
     buffer_previewer_maker = new_maker,
 
     path_display = {
-      shorten = {
-        -- e.g. for a path like
-        --   `alpha/beta/gamma/delta.txt`
-        -- setting `path_display.shorten = { len = 1, exclude = {1, -1} }`
-        -- will give a path like:
-        --   `alpha/b/g/delta.txt`
-        len = 3, exclude = { 1, -1 }
-      },
+      --shorten = {
+        ---- e.g. for a path like
+        ----   `alpha/beta/gamma/delta.txt`
+        ---- setting `path_display.shorten = { len = 1, exclude = {1, -1} }`
+        ---- will give a path like:
+        ----   `alpha/b/g/delta.txt`
+        --len = 3, exclude = { 1, -1 }
+      --},
     },
 
     mappings = {
@@ -133,5 +133,38 @@ telescope.setup {
         ["?"] = actions.which_key,
       },
     },
+    extensions = {
+    coc = {
+        theme = 'dropdown',
+        prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+    },
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      }
+
+      -- pseudo code / specification for writing custom displays, like the one
+      -- for "codeactions"
+      -- specific_opts = {
+      --   [kind] = {
+      --     make_indexed = function(items) -> indexed_items, width,
+      --     make_displayer = function(widths) -> displayer
+      --     make_display = function(displayer) -> function(e)
+      --     make_ordinal = function(e) -> string
+      --   },
+      --   -- for example to disable the custom builtin "codeactions" display
+      --      do the following
+      --   codeactions = false,
+      -- }
+    }
+  },
+
   }
 }
+
+
+
+telescope.load_extension('vim_bookmarks')
+telescope.load_extension("frecency")
+telescope.load_extension('coc')
+telescope.load_extension('ui-select')

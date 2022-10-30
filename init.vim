@@ -52,9 +52,9 @@ set autoindent " next line indent be the same with the last line
 " set undofile
 set autoread
 
-noremap S : wa<CR>
-noremap Q : q<CR>
-noremap T : source $MYVIMRC<CR>
+noremap S :wa<CR>
+noremap Q :q<CR>
+noremap T :source $MYVIMRC<CR>
 inoremap jk <Esc>
 vnoremap oo <Esc>
 " press space to enter insert mode
@@ -118,10 +118,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
 
 " show file git status in nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 
-"Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-"Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
 
 Plug 'AndrewRadev/switch.vim'
 Plug 'gerazov/vim-toggle-bool'
@@ -137,7 +137,15 @@ Plug 'mg979/vim-visual-multi'
 Plug 'nvim-lua/plenary.nvim'
 " Note: need to install rg 
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'tom-anders/telescope-vim-bookmarks.nvim'
+Plug 'nvim-telescope/telescope-frecency.nvim' 
+Plug 'kkharji/sqlite.lua'
+Plug 'nvim-telescope/telescope-live-grep-args.nvim'
+Plug 'fannheyward/telescope-coc.nvim'
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 "Plug 'nvim-telescope/telescope-file-browser.nvim'
+
+
 "
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -332,24 +340,25 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
  "==================== NERDTree ============
-noremap tt :NERDTree<CR>
-noremap ty :NERDTreeClose<CR>
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
+"noremap tt :NERDTree<CR>
+"noremap ty :NERDTreeClose<CR>
+"let g:NERDTreeGitStatusIndicatorMapCustom = {
+                "\ 'Modified'  :'✹',
+                "\ 'Staged'    :'✚',
+                "\ 'Untracked' :'✭',
+                "\ 'Renamed'   :'➜',
+                "\ 'Unmerged'  :'═',
+                "\ 'Deleted'   :'✖',
+                "\ 'Dirty'     :'✗',
+                "\ 'Ignored'   :'☒',
+                "\ 'Clean'     :'✔︎',
+                "\ 'Unknown'   :'?',
+                "\ }
 
 " =============== nvim-tree ==========
-"noremap tt :NvimTreeOpen<CR>
-
+noremap tt :NvimTreeOpen<CR>
+noremap ty :NvimTreeClose<CR>
+lua require('plugin-config/nvim-tree')
 
 " ============= treesitter =============
 lua require('plugin-config/nvim-treesitter')
@@ -373,19 +382,22 @@ colorscheme oceanic_material"
 " ===== telescope =====
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>init
+"nnoremap <leader>fg <cmd>Telescope live_grep<cr>init
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fs <cmd>Telescope grep_string<cr>
+nnoremap <leader>fm <cmd>Telescope vim_bookmarks all<cr>
+nnoremap <leader>fn <cmd>Telescope frecency<cr>
+nnoremap <leader>fg <cmd>:lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>
+
 
 " Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+"nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+"nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+"nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 lua require('plugin-config/telescope')
-
 " ==== puremourning/vimspector ====
 let g:vimspector_enable_mappings = 'HUMAN'
 
