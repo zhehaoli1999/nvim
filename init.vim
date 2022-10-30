@@ -1,4 +1,4 @@
-" Author: @zhehaoli1999
+" Author: @zhehaoli2000
 " Ref: 
 "   https://github.com/theniceboy/nvim/blob/master/init.vim
 "   https://www.ruanyifeng.com/blog/2018/09/vimrc.html
@@ -66,6 +66,8 @@ noremap H 5h
 
 " for C++, add ; in end of a line 
 noremap <leader>; <Esc>$a;<Esc>
+
+noremap ZZ :quitall<CR>
 
 " ================== Window management ====================
 " Use <space> + new arrow keys for moving the cursor around windows
@@ -158,6 +160,12 @@ let g:gitgutter_map_keys = 0 "disable keys of gitgutter
  " bookmarks
  Plug 'MattesGroeger/vim-bookmarks'
  "Plug 'Pocco81/auto-save.nvim'
+
+" Sessions 
+Plug 'Shatur/neovim-session-manager'
+
+" greetting 
+Plug 'goolord/alpha-nvim'
 
 "lua << EOF
   "require("auto-save").setup {
@@ -403,3 +411,10 @@ noremap sb <Plug>VimspectorToggleBreakpoint
 noremap sn <Plug>VimspectorJumpToNextBreakpoint
 noremap sr <Plug>VimspectorRunToCursor
 noremap sc <Plug>VimspectorContinue
+
+" ======== session-manager =======
+lua require('plugin-config/neovim-session-manager')
+
+" greetings
+lua require("alpha").setup(require("alpha.themes.dashboard").config)
+
