@@ -111,8 +111,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
 
 " parenthesis highlight 
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+"Plug 'luochen1990/rainbow'
+"let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'dense-analysis/ale'
@@ -148,6 +148,7 @@ Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 "
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 
 " For view git diff
 Plug 'sindrets/diffview.nvim'
