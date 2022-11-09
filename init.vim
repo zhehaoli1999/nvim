@@ -22,6 +22,7 @@ filetype plugin indent on
 set mouse=a " enable mouse 
 set encoding=utf-8 
 let &t_ut=''
+set clipboard=unnamed
 
 let autosave=20
 
@@ -67,11 +68,22 @@ noremap H 5h
 " for C++, add ; in end of a line 
 noremap <leader>; <Esc>$a;<Esc>
 
-noremap ZZ :quitall<CR>
+" ======= copy and paste with system clipboard ====
+nnoremap <C-y> "+y
+xnoremap <C-y> "+y
+nnoremap <C-p> "+p
+xnoremap <C-p> "+p
 
+
+" ======= delete without copy ======
+nnoremap <leader>d "_d
+nnoremap <leader>x "_x
+xnoremap <leader>d "_d
+xnoremap <leader>x "_x
+xnoremap <leader>p "_dP
 " ================== Window management ====================
 " Use <space> + new arrow keys for moving the cursor around windows
-noremap <LEADER>w <C-w>w
+noremap <LEADER>w <C-w>w  
 noremap <LEADER>k <C-w>k
 noremap <LEADER>j <C-w>j
 noremap <LEADER>h <C-w>h
@@ -92,7 +104,7 @@ noremap <right> :vertical resize+5<CR>
 " ================== Tab management ====================
 noremap <C-t> :tabnew<CR>
 
-
+noremap ZZ :quitall<CR>
 " ==================== My Extensions ======================
 call plug#begin()
 
@@ -431,3 +443,5 @@ lua require('plugin-config/neovim-session-manager')
 " greetings
 lua require("alpha").setup(require("alpha.themes.dashboard").config)
 
+" ======== diffview =======
+nmap td :DiffviewOpen<CR>
