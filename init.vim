@@ -1,5 +1,4 @@
-" Author: @zhehaoli2000
-" Ref: 
+" Author: @zhehaoli2000 Ref: 
 "   https://github.com/theniceboy/nvim/blob/master/init.vim
 "   https://www.ruanyifeng.com/blog/2018/09/vimrc.html
 
@@ -59,7 +58,10 @@ noremap T :source $MYVIMRC<CR>
 inoremap jk <Esc>
 vnoremap oo <Esc>
 " press space to enter insert mode
-" nnoremap <Tab> i 
+" nnoremap <Tab> i
+"
+" merge multi-line to one line: <C-j>
+noremap <C-j> J 
 noremap J 5j
 noremap K 5k
 noremap L 5l
@@ -190,7 +192,7 @@ Plug 'goolord/alpha-nvim'
 
 "lua << EOF
   "require("auto-save").setup {
-		"-- your config goes here
+		"-- your config goes here:
 		"-- or just leave it empty :)
 	"}
 "EOF
@@ -198,6 +200,11 @@ Plug 'goolord/alpha-nvim'
 " Plug 'kristijanhusak/defx-icons'
 " Plug 'kristijanhusak/defx-git'
 " Plug 'connorholyday/vim-snazzy'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'dhruvasagar/vim-table-mode'
+
 call plug#end()
 
 " =============================== COC =======================================
@@ -369,7 +376,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
                 "\ }
 
 " =============== nvim-tree ==========
-noremap tt :NvimTreeOpen<CR>
+noremap tt :NvimTreeFindFile<CR>
 noremap ty :NvimTreeClose<CR>
 lua require('plugin-config/nvim-tree')
 
@@ -445,3 +452,8 @@ lua require("alpha").setup(require("alpha.themes.dashboard").config)
 
 " ======== diffview =======
 nmap td :DiffviewOpen<CR>
+
+" ======== markdown preview & table mode ====
+let g:table_mode_corner='|'
+nmap <LEADER>mp <Plug>MarkdownPreview
+
