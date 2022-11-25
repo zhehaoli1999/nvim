@@ -78,10 +78,14 @@ xnoremap <C-p> "+p
 
 
 " ======= delete without copy ======
-nnoremap <leader>d "_d
-nnoremap <leader>x "_x
-xnoremap <leader>d "_d
-xnoremap <leader>x "_x
+nnoremap d "_d
+nnoremap x "_x
+xnoremap d "_d
+xnoremap x "_x
+nnoremap <leader>d d
+nnoremap <leader>x x
+xnoremap <leader>d d
+xnoremap <leader>x x
 xnoremap <leader>p "_dP
 " ================== Window management ====================
 " Use <space> + new arrow keys for moving the cursor around windows
@@ -117,7 +121,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_section_warning=0
 
-Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 
@@ -129,7 +133,7 @@ Plug 'scrooloose/nerdcommenter'
 "let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 
 " show file git status in nerdtree
 "Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -137,8 +141,10 @@ Plug 'dense-analysis/ale'
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 
-Plug 'AndrewRadev/switch.vim'
-Plug 'gerazov/vim-toggle-bool'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
+
+"Plug 'AndrewRadev/switch.vim'
+"Plug 'gerazov/vim-toggle-bool'
 
 " color theme 
 Plug 'glepnir/oceanic-material'
@@ -159,7 +165,6 @@ Plug 'fannheyward/telescope-coc.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 "Plug 'nvim-telescope/telescope-file-browser.nvim'
 
-
 "
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
@@ -170,7 +175,7 @@ Plug 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0 "disable keys of gitgutter
 
 "NOTE: need to install ctags 
- Plug 'preservim/tagbar' 
+ "Plug 'preservim/tagbar' 
 
  " to highlight TODO comments
  Plug 'folke/todo-comments.nvim'
@@ -204,6 +209,11 @@ Plug 'goolord/alpha-nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'dhruvasagar/vim-table-mode'
+
+Plug 'simrat39/symbols-outline.nvim'
+
+Plug 'voldikss/vim-floaterm'
+"Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
 call plug#end()
 
@@ -377,6 +387,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " =============== nvim-tree ==========
 noremap tt :NvimTreeFindFile<CR>
+noremap to :NvimTreeOpen<CR>
 noremap ty :NvimTreeClose<CR>
 lua require('plugin-config/nvim-tree')
 
@@ -457,3 +468,15 @@ nmap td :DiffviewOpen<CR>
 let g:table_mode_corner='|'
 nmap <LEADER>mp <Plug>MarkdownPreview
 
+" ====== symbols-outline ======
+lua require("plugin-config/symbols-outline")
+lua require("symbols-outline").setup()
+
+" ====== float term ======
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F10>'
+let g:floaterm_keymap_kill = '<F12>'
+"noremap <LEADER> :FloatermNew --autoclose=0 gcc % -o %< && ./%<
+noremap <LEADER>py :FloatermNew --autoclose=0 python %<CR> 
