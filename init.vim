@@ -78,15 +78,19 @@ xnoremap <C-p> "+p
 
 
 " ======= delete without copy ======
-nnoremap d "_d
-nnoremap x "_x
-xnoremap d "_d
-xnoremap x "_x
-nnoremap <leader>d d
-nnoremap <leader>x x
-xnoremap <leader>d d
-xnoremap <leader>x x
-xnoremap <leader>p "_dP
+"nnoremap d "_d
+"nnoremap x "_x
+"xnoremap d "_d
+"xnoremap x "_x
+"nnoremap <leader>d d
+"nnoremap <leader>x x
+"xnoremap <leader>d d
+"xnoremap <leader>x x
+nnoremap <leader>d "_d
+nnoremap <leader>x "_x
+xnoremap <leader>d "_d
+xnoremap <leader>x "_x
+xnoremap <leader>p _dP
 " ================== Window management ====================
 " Use <space> + new arrow keys for moving the cursor around windows
 noremap <LEADER>w <C-w>w  
@@ -175,7 +179,8 @@ Plug 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0 "disable keys of gitgutter
 
 "NOTE: need to install ctags 
- "Plug 'preservim/tagbar' 
+" Used for: for example methods in C++ are displayed under the class they are defined in
+ Plug 'preservim/tagbar' 
 
  " to highlight TODO comments
  Plug 'folke/todo-comments.nvim'
@@ -214,6 +219,9 @@ Plug 'simrat39/symbols-outline.nvim'
 
 Plug 'voldikss/vim-floaterm'
 "Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
+" For me I use MiKTeX 
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -480,3 +488,33 @@ let g:floaterm_keymap_toggle = '<F10>'
 let g:floaterm_keymap_kill = '<F12>'
 "noremap <LEADER> :FloatermNew --autoclose=0 gcc % -o %< && ./%<
 noremap <LEADER>py :FloatermNew --autoclose=0 python %<CR> 
+
+" ========= vim Tex =======
+" This is necessary for VimTeX to load properly. The "indent" is optional.
+" Note that most plugin managers will do this automatically.
+filetype plugin indent on
+
+" This enables Vim's and neovim's syntax-related features. Without this, some
+" VimTeX features will not work (see ":help vimtex-requirements" for more
+" info).
+syntax enable
+
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+"let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+"let g:vimtex_view_general_viewer = 'Chrome'
+"let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+" see ":help vimtex-compiler".
+let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_compiler_latexmk = {'build_dir': {-> expand("%:t:r")}}
+
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+let maplocalleader = ","
