@@ -1,0 +1,79 @@
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["H"],
+      "after": ["5", "h"]
+    },
+    {
+      "before": ["L"],
+      "after": ["5", "l"]
+    },
+    {
+      "before": ["s", "k"],
+      "commands": ["workbench.action.splitEditorOrthogonal"]
+    },
+    {
+      "before": ["s", "l"],
+      "commands": ["workbench.action.splitEditor"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["<C-w>", "l"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+        "before": ["<leader>", "d"],
+        "after": ["\"", "_", "d"]
+    },
+    {
+        "before": ["<leader>", "f", "f"],
+        "commands": ["workbench.action.quickOpen"]
+    },
+    {
+        "before": ["<leader>", "f", "g"],
+        "commands": ["workbench.action.findInFiles"]
+    },
+    {
+        "before": [ "Right" ],
+        "commands": ["workbench.action.increaseViewSize"]
+    },
+    {
+        "before": [ "left" ],
+        "commands": ["workbench.action.decreaseViewSize"]
+    },
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  }
+
