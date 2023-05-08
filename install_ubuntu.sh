@@ -20,3 +20,6 @@ sudo apt install font-manager
 
 # install newest clangd for coc.nvim
 # You can use :CocCommand workspace.showOutput to show the output
+
+# install ctags for plugin 
+sudo apt install exuberant-ctags

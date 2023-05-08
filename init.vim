@@ -423,7 +423,8 @@ colorscheme oceanic_material"
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 "nnoremap <leader>fg <cmd>Telescope live_grep<cr>init
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+"nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fh <cmd>Telescope find_files hidden=true<cr>
 nnoremap <leader>fs <cmd>Telescope grep_string<cr>
 nnoremap <leader>fm <cmd>Telescope vim_bookmarks all<cr>
 nnoremap <leader>fn <cmd>Telescope frecency<cr>
