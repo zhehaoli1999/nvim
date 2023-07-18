@@ -2,6 +2,7 @@
 sudo apt install -y curl 
 curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash - 
 
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt install -y nodejs 
 
 # install newest neovim 
@@ -16,10 +17,10 @@ sudo snap install nvim --classic
 # add missing icons for nvimtree
 #wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/NerdFontsSymbolsOnly.zip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
-sudo apt install font-manager
+sudo apt install -y font-manager
 
 # install newest clangd for coc.nvim
 # You can use :CocCommand workspace.showOutput to show the output
 
 # install ctags for plugin 
-sudo apt install exuberant-ctags
+sudo apt install -y exuberant-ctags
