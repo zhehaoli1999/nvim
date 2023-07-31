@@ -24,3 +24,15 @@ sudo apt install -y font-manager
 
 # install ctags for plugin 
 sudo apt install -y exuberant-ctags
+
+# for sogou input 
+sudo apt install -y libgsettings-qt1
+sudo apt install -y libqt5quickwidgets5
+
+# For coc to work for C++ and python 
+# :CocInstall coc-pyright coc-clangd
+
+
+# for telescope live-grep 
+sudo apt install -y fd-find
+sudo apt install -y ripgrep

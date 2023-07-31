@@ -76,6 +76,8 @@ xnoremap <C-y> "+y
 nnoremap <C-p> "+p
 xnoremap <C-p> "+p
 
+"xnoremap p "+p
+"xnoremap y "+y
 
 " ======= delete without copy ======
 "nnoremap d "_d
@@ -489,6 +491,8 @@ let g:floaterm_keymap_toggle = '<F10>'
 let g:floaterm_keymap_kill = '<F12>'
 "noremap <LEADER> :FloatermNew --autoclose=0 gcc % -o %< && ./%<
 noremap <LEADER>py :FloatermNew --autoclose=0 python %<CR> 
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.9
 
 " ========= vim Tex =======
 " This is necessary for VimTeX to load properly. The "indent" is optional.
