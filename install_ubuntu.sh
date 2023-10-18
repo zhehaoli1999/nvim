@@ -1,9 +1,12 @@
 # install newest nodejs
 sudo apt install -y curl 
-curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash - 
 
-curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
-sudo apt install -y nodejs 
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] https://deb.nodesource.com/node_18.x $(lsb_release -cs) main" > /etc/apt/sources.list.d/nodesource.list
+echo "deb-src [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] https://deb.nodesource.com/node_18.x $(lsb_release -cs) main" >> /etc/apt/sources.list.d/nodesource.list
+
+sudo apt-get update
+sudo apt-get install -y nodejs
 
 # install newest neovim 
 sudo snap install nvim --classic
@@ -32,7 +35,14 @@ sudo apt install -y libqt5quickwidgets5
 # For coc to work for C++ and python 
 # :CocInstall coc-pyright coc-clangd
 
-
 # for telescope live-grep 
 sudo apt install -y fd-find
 sudo apt install -y ripgrep
+
+# Install fish-shell
+sudo apt-get install -y fish
+sudo sh -c 'echo /usr/bin/fish >> /etc/shells'
+chsh -s /usr/bin/fish
+
+# install htop 
+sudo apt install -y htop
