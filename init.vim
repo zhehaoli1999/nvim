@@ -162,7 +162,7 @@ Plug 'mg979/vim-visual-multi'
 " fuzzy finder
 Plug 'nvim-lua/plenary.nvim'
 " Note: need to install rg 
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 Plug 'nvim-telescope/telescope-frecency.nvim' 
 Plug 'kkharji/sqlite.lua'
@@ -224,6 +224,9 @@ Plug 'voldikss/vim-floaterm'
 
 " For me I use MiKTeX 
 Plug 'lervag/vimtex'
+
+Plug 'github/copilot.vim'
+
 
 call plug#end()
 
@@ -417,8 +420,7 @@ colorscheme oceanic_material"
 
 
 " ===== vim surround ======
-"nnoremap ss  ySS{<CR>
-
+"nnoremap sw ysw
 
 " ===== telescope =====
 " Find files using Telescope command-line sugar.
@@ -523,3 +525,17 @@ let g:vimtex_compiler_latexmk = {'build_dir': {-> expand("%:t:r")}}
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = ","
+
+" ============== Github Copilot ==================
+noremap cp :Copilot panel<CR>
+imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+let g:copilot_proxy = 'localhost:7890'
+
+imap <C-w> <Plug>(copilot-accept-word)
+imap <C-l> <Plug>(copilot-accept-line)
+imap <C-]> <Plug>(copilot-next)
+imap <C-[> <Plug>(copilot-previous)
+
+
