@@ -127,11 +127,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_section_warning=0
 
-"Plug 'preservim/nerdtree'
+""Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 
-" easy comment
+"" easy comment
 Plug 'scrooloose/nerdcommenter'
 
 " parenthesis highlight 
@@ -149,12 +149,12 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 
-"Plug 'AndrewRadev/switch.vim'
-"Plug 'gerazov/vim-toggle-bool'
+""Plug 'AndrewRadev/switch.vim'
+""Plug 'gerazov/vim-toggle-bool'
 
-" color theme 
+"" color theme 
 Plug 'glepnir/oceanic-material'
-"Plug 'Mofiqul/vscode.nvim'
+""Plug 'Mofiqul/vscode.nvim'
 
 " Multi-cursor 
 Plug 'mg979/vim-visual-multi' 
@@ -171,17 +171,18 @@ Plug 'fannheyward/telescope-coc.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 "Plug 'nvim-telescope/telescope-file-browser.nvim'
 
-"
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+""
+""Plug 'nvim-treesitter/nvim-treesitter', {'tag': '0.5.5'}
+Plug 'nvim-treesitter/nvim-treesitter' 
 Plug 'p00f/nvim-ts-rainbow'
 
-" For view git diff
+"" For view git diff
 Plug 'sindrets/diffview.nvim'
 Plug 'airblade/vim-gitgutter'
 let g:gitgutter_map_keys = 0 "disable keys of gitgutter
 
-"NOTE: need to install ctags 
-" Used for: for example methods in C++ are displayed under the class they are defined in
+" NOTE: need to install ctags 
+ " Used for: for example methods in C++ are displayed under the class they are defined in
  Plug 'preservim/tagbar' 
 
  " to highlight TODO comments
@@ -217,13 +218,13 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'dhruvasagar/vim-table-mode'
 
-Plug 'simrat39/symbols-outline.nvim'
+"Plug 'simrat39/symbols-outline.nvim'
 
 Plug 'voldikss/vim-floaterm'
 "Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
-" For me I use MiKTeX 
-Plug 'lervag/vimtex'
+"" For me I use MiKTeX 
+"Plug 'lervag/vimtex'
 
 Plug 'github/copilot.vim'
 
@@ -285,6 +286,7 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window.
 nnoremap <silent> M :call ShowDocumentation()<CR>
 
+
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
@@ -292,6 +294,8 @@ function! ShowDocumentation()
     call feedkeys('M', 'in')
   endif
 endfunction
+
+nnoremap <silent> <C-o> : CocOutline<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -362,7 +366,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -482,8 +486,8 @@ let g:table_mode_corner='|'
 nmap <LEADER>mp <Plug>MarkdownPreview
 
 " ====== symbols-outline ======
-lua require("plugin-config/symbols-outline")
-lua require("symbols-outline").setup()
+"lua require("plugin-config/symbols-outline")
+"lua require("symbols-outline").setup()
 
 " ====== float term ======
 let g:floaterm_keymap_new    = '<F7>'
@@ -492,19 +496,18 @@ let g:floaterm_keymap_next   = '<F9>'
 let g:floaterm_keymap_toggle = '<F10>'
 let g:floaterm_keymap_kill = '<F12>'
 "noremap <LEADER> :FloatermNew --autoclose=0 gcc % -o %< && ./%<
-noremap <LEADER>py :FloatermNew --autoclose=0 python %<CR> 
+noremap <LEADER>py :FloatermNew --autoclose=0 python3 %<CR> 
+"noremap <LEADER>py :FloatermNew python3 %<CR> 
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
 
 " ========= vim Tex =======
 " This is necessary for VimTeX to load properly. The "indent" is optional.
 " Note that most plugin managers will do this automatically.
-filetype plugin indent on
 
 " This enables Vim's and neovim's syntax-related features. Without this, some
 " VimTeX features will not work (see ":help vimtex-requirements" for more
 " info).
-syntax enable
 
 " Viewer options: One may configure the viewer either by specifying a built-in
 " viewer method:
@@ -527,15 +530,23 @@ let g:vimtex_compiler_latexmk = {'build_dir': {-> expand("%:t:r")}}
 let maplocalleader = ","
 
 " ============== Github Copilot ==================
-noremap cp :Copilot panel<CR>
-imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
+"noremap cp :Copilot panel<CR>
+"imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
+"let g:copilot_no_tab_map = v:true
 
-let g:copilot_proxy = 'localhost:7890'
+"let g:copilot_proxy = 'localhost:7890'
 
-imap <C-w> <Plug>(copilot-accept-word)
-imap <C-l> <Plug>(copilot-accept-line)
-imap <C-]> <Plug>(copilot-next)
-imap <C-[> <Plug>(copilot-previous)
+"imap <C-w> <Plug>(copilot-accept-word)
+"imap <C-l> <Plug>(copilot-accept-line)
+"imap <C-]> <Plug>(copilot-next)
+"imap <C-[> <Plug>(copilot-previous)
+
+" init.vim 文件
+"
+" 设置 <C-l> 为 Copilot 的补全快捷键
+inoremap <silent><expr> <C-l> copilot#Accept("<CR>")
+
+" 保持 Tab 键绑定用于 coc.nvim
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 
