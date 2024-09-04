@@ -14,7 +14,9 @@
     "*/__pycache__/*"],
   "pyright.inlayHints.functionReturnTypes": false,
   "pyright.inlayHints.variableTtrueypes": false,
+  "pyright.inlayHints.parameterNames": false,
   "outline.autoPreview": true,
   "outline.previewWinblend": 10,
-  "outline.followCursor": true
+  "outline.followCursor": true,
+  "clangd.arguments": ["--header-insertion=never", "--clang-tidy"],
 }

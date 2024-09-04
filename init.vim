@@ -295,7 +295,7 @@ function! ShowDocumentation()
   endif
 endfunction
 
-nnoremap <silent> <C-o> : CocOutline<CR>
+nnoremap <silent> <C-k> : CocOutline<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -385,6 +385,10 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" 自动格式化 C++ 文件
+autocmd BufWritePre *.cpp,*.h,*.c,*.hpp :call CocAction('format')
+nnoremap L :call CocAction('format')<CR>
 
  "==================== NERDTree ============
 "noremap tt :NERDTree<CR>
@@ -498,6 +502,7 @@ let g:floaterm_keymap_kill = '<F12>'
 "noremap <LEADER> :FloatermNew --autoclose=0 gcc % -o %< && ./%<
 noremap <LEADER>py :FloatermNew --autoclose=0 python3 %<CR> 
 "noremap <LEADER>py :FloatermNew python3 %<CR> 
+noremap <LEADER>bb :FloatermNew --autoclose=0 cd build && cmake .. && make -j8 && ./<CR>
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
 
