@@ -228,6 +228,12 @@ Plug 'voldikss/vim-floaterm'
 
 Plug 'github/copilot.vim'
 
+Plug 'amitds1997/remote-nvim.nvim'
+Plug 'MunifTanjim/nui.nvim'
+
+"Plug 'nosduco/remote-sshfs.nvim'
+
+"Plug 'chipsenkbeil/distant.nvim', {'branch': 'v0.3' }
 
 call plug#end()
 
@@ -387,8 +393,11 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " 自动格式化 C++ 文件
-autocmd BufWritePre *.cpp,*.h,*.c,*.hpp :call CocAction('format')
+"autocmd BufWritePre *.cpp,*.h,*.c,*.hpp :call CocAction('format')
 nnoremap L :call CocAction('format')<CR>
+
+" 宏展开
+nmap <leader>me :CocCommand clangd.expandMacro<CR>
 
  "==================== NERDTree ============
 "noremap tt :NERDTree<CR>
@@ -502,7 +511,8 @@ let g:floaterm_keymap_kill = '<F12>'
 "noremap <LEADER> :FloatermNew --autoclose=0 gcc % -o %< && ./%<
 noremap <LEADER>py :FloatermNew --autoclose=0 python3 %<CR> 
 "noremap <LEADER>py :FloatermNew python3 %<CR> 
-noremap <LEADER>bb :FloatermNew --autoclose=0 cd build && cmake .. && make -j8 && ./<CR>
+noremap <LEADER>bc :FloatermNew --autoclose=0 cd build && cmake .. && make -j8 && ./<CR>
+noremap <LEADER>bb :FloatermNew --autoclose=0 cd build && make -j8 && ./<CR>
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
 
@@ -555,3 +565,17 @@ inoremap <silent><expr> <C-l> copilot#Accept("<CR>")
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 
+" ============== remote-nvim ===============
+"lua require('plugin-config/remote-nvim')
+
+"lua require('telescope').load_extension 'remote-sshfs'
+"lua << EOF
+"local api = require('remote-sshfs.api')
+"vim.keymap.set('n', '<leader>rc', api.connect, {})
+"vim.keymap.set('n', '<leader>rd', api.disconnect, {})
+"vim.keymap.set('n', '<leader>re', api.edit, {})
+"EOF
+"lua require('plugin-config/remote-sshfs')
+"lua require("distant"):setup()
+
+lua require('remote-nvim').setup()
