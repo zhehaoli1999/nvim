@@ -7,6 +7,7 @@ echo "deb-src [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] htt
 
 sudo apt-get update
 sudo apt-get install -y nodejs
+sudp apt install -y npm
 
 # install newest neovim 
 sudo snap install nvim --classic
