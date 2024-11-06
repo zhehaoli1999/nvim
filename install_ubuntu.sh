@@ -47,3 +47,7 @@ chsh -s /usr/bin/fish
 
 # install htop 
 sudo apt install -y htop
+
+# if clangd cannot recognize C++ stanford headers, try:
+# sudo apt install libstdc++-12-dev
+# Ref: https://stackoverflow.com/questions/26333823/clang-doesnt-see-basic-headers/29821538#29821538:~:text=sudo%20apt%20install%20libstdc%2B%2B%2D12%2Ddev
