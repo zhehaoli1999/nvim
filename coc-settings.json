@@ -18,5 +18,5 @@
   "outline.autoPreview": true,
   "outline.previewWinblend": 10,
   "outline.followCursor": true,
-  "clangd.arguments": ["--header-insertion=never", "--clang-tidy"],
+  "clangd.arguments": [  "--background-index", "--header-insertion=never", "--clang-tidy", "--log=verbose"],
 }

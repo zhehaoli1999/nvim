@@ -234,6 +234,20 @@ Plug 'MunifTanjim/nui.nvim'
 "Plug 'nosduco/remote-sshfs.nvim'
 
 "Plug 'chipsenkbeil/distant.nvim', {'branch': 'v0.3' }
+" ---------------cursor-like ai ---------------
+" Deps
+Plug 'stevearc/dressing.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+
+" Optional deps
+Plug 'hrsh7th/nvim-cmp'
+Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+Plug 'HakonHarnes/img-clip.nvim'
+Plug 'zbirenbaum/copilot.lua'
+
+" Yay, pass source=true if you want to build from source
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
 call plug#end()
 
@@ -377,6 +391,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " Mappings for CoCList
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent><nowait> <space>ae  :<C-u>CocList diagnostics --level=error<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
@@ -581,3 +596,8 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 "lua require("distant"):setup()
 
 lua require('remote-nvim').setup()
+
+" ============== avante.nvim ===============
+autocmd! User avante.nvim lua << EOF
+lua require('avante_lib').load()
+lua require('avante').setup()
