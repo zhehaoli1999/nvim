@@ -63,7 +63,7 @@ inoremap jk <Esc>
 vnoremap oo <Esc>
 
 " merge multi-line to one line: <C-j>
-noremap <C-j> J
+" noremap <C-J> J " Replace by control-shift-j
 noremap J 5j
 noremap K 5k
 noremap L 5l
@@ -90,8 +90,8 @@ noremap <LEADER>h <C-w>h
 noremap <LEADER>l <C-w>l
 
 " Tab navigation
-nnoremap <A-n> :tabnext<CR>
-nnoremap <A-p> :tabprev<CR>
+nnoremap gt :tabnext<CR>
+nnoremap gT :tabprev<CR>
 " noremap <C-t> :tabnew<CR>
 
 noremap s <nop>
@@ -110,7 +110,8 @@ map sf <Action>(ToggleFullScreen)
 " Resize splits with arrow keys (Use Tab Splitter Plugin)
 " noremap <up> :res +5<CR>
 " noremap <down> :res -5<CR>
-" noremap <left> <Action>(StretchSplitterLeft)<CR>
+" noremap <left> <C-Shift-[>
+" noremap <left> <C-A-[>
 " noremap <right> :vertical resize+5<CR>
 
 " ================== EasyMotion ====================
@@ -119,6 +120,7 @@ map <leader>f <Plug>(easymotion-f)
 
 " debug and build
 map <leader>dd <Action>(Debug)
+map <leader>bv <Action>(Run)
 map <leader>bb <Action>(Build)
 map <leader>cc <Action>(Stop)
 
@@ -138,8 +140,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Popup navigation
-inoremap <C-j> <Action>(PopupMenu-selectNext)
-inoremap <C-k> <Action>(PopupMenu-selectPrev)
+inoremap <A-j> <Action>(PopupMenu-selectNext)
+inoremap <A-k> <Action>(PopupMenu-selectPrev)
 
 " nnoremap M <Action>(ShowPopupMenu)
 
@@ -174,13 +176,16 @@ map <leader>rs <Action>(ChangeSignature)
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
 
 " Go to code
-nmap <leader>gd <Action>(GotoDeclaration)
-nmap <leader>gy <Action>(GotoTypeDeclaration)
-nmap <leader>gi <Action>(GotoImplementation)
-nmap <leader>gu <Action>(ShowUsages)
-nmap <leader>gt <Action>(GotoTest)
-nmap <leader>gf <Action>(Back)
-nmap <leader>gb <Action>(Forward)
+nmap gd <Action>(GotoDeclaration)
+nmap gr <Action>(ShowUsages)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gu <Action>(ShowUsages)
+" nmap gt <Action>(GotoTest)
+nmap gf <Action>(Back)
+nmap gb <Action>(Forward)
+
+nmap m <Action>(HoverInfo)
 
 " ================== Git ====================
 " Git windows
@@ -189,12 +194,12 @@ map <leader>gs <Action>(ActivateVersionControlToolWindow)
 map <leader>gb <Action>(Git.Branches)
 
 " Errors
-map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
-map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+map g] <Action>(ReSharperGotoNextErrorInSolution)
+map g[ <Action>(ReSharperGotoPrevErrorInSolution)
 
 " ================== Which-key ====================
 " Which-key settings
-set which-key
+" set which-key
 let g:WhichKey_FontSize = 19
 let g:Whichkey_Font = "Cascade Code"
 " let g:WhichKey_CommandColor = "#41ead4"
