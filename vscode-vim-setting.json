@@ -1,3 +1,6 @@
+ {
+  "window.commandCenter": 1,
+  "files.autoSave": "afterDelay",
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -5,75 +8,278 @@
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [
+        "d",
+        "d"
+      ]
     },
     {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
+      "before": [
+        "<C-n>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
     {
-      "before": ["J"],
-      "after": ["5", "j"]
+      "before": [
+        "J"
+      ],
+      "after": [
+        "5",
+        "j"
+      ]
     },
     {
-      "before": ["K"],
-      "after": ["5", "k"]
+      "before": [
+        "K"
+      ],
+      "after": [
+        "5",
+        "k"
+      ]
     },
     {
-      "before": ["H"],
-      "after": ["5", "h"]
+      "before": [
+        "H"
+      ],
+      "after": [
+        "5",
+        "h"
+      ]
     },
     {
-      "before": ["L"],
-      "after": ["5", "l"]
+      "before": [
+        "L"
+      ],
+      "after": [
+        "5",
+        "l"
+      ]
     },
     {
-      "before": ["s", "k"],
-      "commands": ["workbench.action.splitEditorOrthogonal"]
+      "before": [
+        "s",
+        "k"
+      ],
+      "commands": [
+        "workbench.action.splitEditorOrthogonal"
+      ]
     },
     {
-      "before": ["s", "l"],
-      "commands": ["workbench.action.splitEditor"]
+      "before": [
+        "s",
+        "l"
+      ],
+      "commands": [
+        "workbench.action.splitEditor"
+      ]
     },
     {
-      "before": ["<leader>", "l"],
-      "after": ["<C-w>", "l"]
+      "before": [
+        "<leader>",
+        "l"
+      ],
+      "after": [
+        "<C-w>",
+        "l"
+      ]
     },
     {
-      "before": ["<leader>", "h"],
-      "after": ["<C-w>", "h"]
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "after": [
+        "<C-w>",
+        "h"
+      ]
     },
     {
-        "before": ["<leader>", "d"],
-        "after": ["\"", "_", "d"]
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "d"
+      ]
     },
     {
-        "before": ["<leader>", "f", "f"],
-        "commands": ["workbench.action.quickOpen"]
+      "before": [
+        "<leader>",
+        "c"
+      ],
+      "after": [
+        "\"",
+        "_",
+        "c"
+      ]
     },
     {
-        "before": ["<leader>", "f", "g"],
-        "commands": ["workbench.action.findInFiles"]
+      "before": [
+        "<leader>",
+        "f",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
     },
     {
-        "before": [ "Right" ],
-        "commands": ["workbench.action.increaseViewSize"]
+      "before": [
+        "<leader>",
+        "f",
+        "g"
+      ],
+      "commands": [
+        "workbench.action.findInFiles"
+      ]
     },
     {
-        "before": [ "left" ],
-        "commands": ["workbench.action.decreaseViewSize"]
+      "before": [
+        "Right"
+      ],
+      "commands": [
+        "workbench.action.increaseViewSize"
+      ]
+    },
+    {
+      "before": [
+        "left"
+      ],
+      "commands": [
+        "workbench.action.decreaseViewSize"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "o"
+      ],
+      "commands": [
+        "workbench.action.gotoSymbol"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "c"
+      ],
+      "commands": [
+        "editor.action.commentLine"
+      ]
+    },
+    {
+      "before": [
+        "M"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
+    },
+    {
+      "before": [
+        "t",
+        "t"
+      ],
+      "commands": [
+        "workbench.view.explorer"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    }
+    // {
+    //     "before": ["t", "n"],
+    //     "commands": ["workbench.view.explorer.newFile"]
+    // }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "J"
+      ],
+      "after": [
+        "5",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "5",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "5",
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "5",
+        "l"
+      ]
     },
   ],
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
-  }
-
+  },
+  "editor.minimap.enabled": true,
+  "diffEditor.maxComputationTime": 0,
+  "cmake.options.statusBarVisibility": "compact",
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "editor.wordWrap": "on",
+  "cmake.showConfigureWithDebuggerNotification": false,
+  "cmake.automaticReconfigure": false,
+  "cmake.configureOnOpen": false,
+  "cmake.configureOnEdit": false,
+  "workbench.colorTheme": "Anysphere",
+  "explorer.confirmDragAndDrop": false
+}
