@@ -1,0 +1,19 @@
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\zash.omp.json" | Invoke-Expression
+
+# Import PSReadLine module
+Import-Module PSReadLine
+
+# Set up history-based autocompletion
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+
+# Optional: Configure key handlers for enhanced navigation
+Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+# If has error, try to run the following command
+# step1. Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
+# step2. Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck
+# step3. Get-Module PSReadLine
+
