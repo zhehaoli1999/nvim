@@ -1,4 +1,4 @@
- {
+{
   "window.commandCenter": 1,
   "files.autoSave": "afterDelay",
   "vim.easymotion": true,
@@ -219,6 +219,64 @@
       "commands": [
         "editor.action.formatDocument"
       ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r",
+        "n"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "m",
+      ],
+      "commands": [
+        "editor.toggleFold"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "M",
+        "M",
+      ],
+      "commands": [
+        "editor.foldAll"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "M",
+        ",",
+      ],
+      "commands": [
+        "editor.unfoldAll"
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "m",
+      ],
+      "commands": [
+        "bookmarks.toggle"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f",
+        "m",
+      ],
+      "commands": [
+        "bookmarks.listFromAllFiles"
+      ]
     }
     // {
     //     "before": ["t", "n"],
@@ -262,6 +320,24 @@
         "l"
       ]
     },
+    {
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "editor.action.joinLines"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "c"
+      ],
+      "commands": [
+        "editor.action.commentLine"
+      ]
+    }
   ],
   "vim.leader": "<space>",
   "vim.handleKeys": {
@@ -281,5 +357,10 @@
   "cmake.configureOnOpen": false,
   "cmake.configureOnEdit": false,
   "workbench.colorTheme": "Anysphere",
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+  "terminal.integrated.fontSize": 13,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  }
 }
