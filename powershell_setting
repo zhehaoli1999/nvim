@@ -17,3 +17,5 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 # step2. Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck
 # step3. Get-Module PSReadLine
 
+Set-Alias o explorer
+Set-Alias p python
