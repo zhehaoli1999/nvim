@@ -7,7 +7,7 @@ Import-Module PSReadLine
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 
-# Optional: Configure key handlers for enhanced navigation
+# (Optional) Configure key handlers for enhanced navigation
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
@@ -19,3 +19,12 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 Set-Alias o explorer
 Set-Alias p python
+
+# (Optional) Install choco for Windows for C++ dependencies (Note: Use Admin shell)
+# Ref: https://chocolatey.org/install
+# Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+# Install Eigen3 
+# choco install eigen -y
+# Install Boost 
+# choco install boost-msvc-14.3 -y
+
